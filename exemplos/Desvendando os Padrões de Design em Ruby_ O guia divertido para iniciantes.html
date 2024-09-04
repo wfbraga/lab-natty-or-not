@@ -1,0 +1,454 @@
+<html><head><meta charset='utf-8'>
+<title>Desvendando os Padrões de Design em Ruby: O guia divertido para iniciantes</title>
+
+
+
+
+
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+.text-block {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: #475467;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.text-block p {
+  margin: 0;
+}
+.text-block a {
+  text-decoration: none;
+}
+.text-block h1 + p {
+  text-align: center;
+}
+.text-block p, .text-block ul, .text-block ol {
+  margin-bottom: 12px;
+}
+.text-block blockquote {
+  border-left: 2px solid #4318FF;
+  padding-left: 20px;
+}
+.text-block blockquote p {
+  font-style: italic;
+  text-align: left !important;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 32px;
+  color: #101828;
+}
+.text-block blockquote p:last-of-type {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #475467;
+}
+.text-block ul {
+  padding: 0;
+  list-style-position: inside;
+  margin-left: 12px;
+}
+.text-block h1 {
+  width: 900px !important;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 44px;
+  text-align: center;
+  color: #101828;
+  margin-bottom: 20px;
+}
+.text-block h2 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  color: #101828;
+  margin-bottom: 16px;
+  margin-top: 28px;
+}
+.text-block h3 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  color: #101828;
+  margin-bottom: 16px;
+  margin-top: 28px;
+}
+.text-block .feature-img {
+  border-radius: 12px;
+  width: 900px;
+  height: 480px;
+  object-fit: cover;
+}
+.text-block :not(.feature-img):not(.feature-img-div) {
+  width: 720px;
+  box-sizing: border-box;
+}
+.text-block .infographics-div {
+  margin-bottom: 28px;
+}
+.text-block .feature-img-div, .text-block .infographics-div {
+  margin-top: 28px;
+}
+.text-block .feature-img-div p, .text-block .infographics-div p {
+  margin-top: 16px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #475467;
+  background-image: url("https://app.texta.ai/images/icons/link-icon.svg");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 16px;
+  padding-left: 22px;
+}
+.text-block .feature-img-div p a, .text-block .infographics-div p a {
+  text-decoration-line: underline;
+  color: #475467;
+}
+.text-block .table-of-contents {
+  margin-bottom: 20px;
+}
+.text-block .table-of-contents ul {
+  padding: 0;
+  list-style-image: url("https://app.texta.ai/images/icons/bullet-icon.svg");
+  list-style-position: inside;
+}
+.text-block .table-of-contents ul li {
+  list-style: none;
+  background-image: url("https://app.texta.ai/images/icons/bullet-icon.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 24px;
+}
+.text-block .table-of-contents ul li a {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 36px;
+  color: #2a70fa;
+  margin-left: 30px;
+}
+.text-block .table-of-contents ul li:hover a {
+  text-decoration-line: underline;
+  color: #2a70fa;
+  text-decoration-color: #2a70fa;
+}
+.text-block .youtube-embed {
+  width: 720px;
+  height: 360px;
+  border-radius: 12px;
+}
+.text-block a {
+  text-decoration-line: underline;
+  color: #2A70FA;
+}
+.text-block .mce-object-iframe {
+  border: none;
+  margin: 0;
+  margin-bottom: 40px;
+  margin-top: 28px;
+}
+.text-block .infographics {
+  border-radius: 12px;
+}
+.text-block #tweet-quote {
+  padding: 40px 42px;
+  border: 6px solid #ddf0fd;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 28px;
+  margin-bottom: 32px;
+  background-image: url("https://app.texta.ai/images/icons/qoutes-back.svg"), url("https://app.texta.ai/images/icons/qoutes-back.svg"), url("https://app.texta.ai/images/icons/qoute-icon.svg");
+  background-position: calc(100% + 5px) calc(100% - 3px), -13px -5px, center 40px;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size: 100px 60px, 100px 60px, 36px 36px;
+}
+.text-block #tweet-quote blockquote {
+  width: auto;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+  color: #101828;
+  margin: 52px 24px 24px 24px;
+  border: none;
+  padding: 0;
+}
+.text-block #tweet-quote a {
+  width: auto;
+  background: #1d9bf0;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #fff;
+}
+.text-block .cta1, .text-block .cta2, .text-block .cta3 {
+  margin-top: 28px;
+  margin-bottom: 40px;
+  padding: 50px 60px;
+  background: #5c4eff;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url("https://app.texta.ai/images/cta/left-corner1.svg"), url("https://app.texta.ai/images/cta/right-corner1.svg");
+  background-position: left top, right bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 249px 249px;
+}
+.text-block .cta1 div, .text-block .cta2 div, .text-block .cta3 div {
+  width: 360px !important;
+}
+.text-block .cta1 p, .text-block .cta2 p, .text-block .cta3 p {
+  text-align: left;
+  display: block;
+  width: auto !important;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #e8e8e8;
+}
+.text-block .cta1 p:first-of-type, .text-block .cta2 p:first-of-type, .text-block .cta3 p:first-of-type {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 34px;
+  margin-bottom: 12px;
+}
+.text-block .cta1 a, .text-block .cta2 a, .text-block .cta3 a {
+  width: auto !important;
+  padding: 18px 40px;
+  background: #fff;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  color: #4a3aff;
+  text-decoration: none;
+}
+.text-block .cta2 {
+  background: #2a3343;
+  background-image: url("https://app.texta.ai/images/cta/left-corner2.svg"), url("https://app.texta.ai/images/cta/right-corner2.svg");
+  background-position: left top, right bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 249px 249px;
+}
+.text-block .cta2 a {
+  color: #fff;
+  background: #6658ff;
+}
+.text-block .cta3 {
+  background: #2a3343;
+  background-image: url("https://app.texta.ai/images/cta/left-corner3.svg"), url("https://app.texta.ai/images/cta/right-corner3.svg");
+  background-position: -3px -5px, calc(100% - 50px) calc(100% + 10px);
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100px 60px;
+}
+.text-block .cta3 a {
+  color: #fff;
+  background: #22c55e;
+}
+.text-block .cta4, .text-block .cta6 {
+  margin-top: 28px;
+  margin-bottom: 40px;
+  padding: 40px 60px;
+  background: #5c4eff;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-image: url("https://app.texta.ai/images/cta/left-corner4.svg"), url("https://app.texta.ai/images/cta/right-corner4.svg");
+  background-position: -50px calc(100% + 10px), calc(100% + 40px) 0;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 154px 154px;
+}
+.text-block .cta4 div, .text-block .cta6 div {
+  width: auto !important;
+  min-height: 44px;
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  margin-top: 18px;
+}
+.text-block .cta4 p, .text-block .cta6 p {
+  display: block;
+  width: auto !important;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #eaecf0;
+  max-width: 500px;
+}
+.text-block .cta4 p:first-of-type, .text-block .cta6 p:first-of-type {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 34px;
+  margin-bottom: 10px;
+}
+.text-block .cta4 a:first-of-type, .text-block .cta6 a:first-of-type {
+  background: #fff;
+  color: #4a3aff;
+}
+.text-block .cta4 a, .text-block .cta6 a {
+  width: auto !important;
+  padding: 12px 20px;
+  background: transparent;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #fff;
+  border: 1px solid #fff;
+  text-decoration: none;
+}
+.text-block .cta6 {
+  background: #cfdaff;
+  background-image: url("https://app.texta.ai/images/cta/top-corner6.svg"), url("https://app.texta.ai/images/cta/bottom-corner6.svg"), url("https://app.texta.ai/images/cta/background6.svg");
+  background-position: top right, calc(100% - 80px) calc(100% - 3px), top left;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+.text-block .cta6 p {
+  color: #2d2e2e;
+  max-width: 600px;
+}
+/* .text-block .cta6 p:first-of-type {
+  max-width: 350px;
+} */
+.text-block .cta6 a:first-of-type {
+  background: #3b82f6;
+  color: #fff;
+}
+.text-block .cta6 a {
+  border: 1px solid #3b82f6;
+  color: #3b82f6;
+}
+.text-block .cta5 {
+  margin-top: 28px;
+  margin-bottom: 40px;
+  padding: 40px 60px;
+  background: #3b82f6;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-image: url("https://app.texta.ai/images/cta/left-corner5.svg"), url("https://app.texta.ai/images/cta/right-corner5.svg");
+  background-position: -17px 0px, calc(100% + 6px) calc(100% - 5px);
+  background-repeat: no-repeat, no-repeat;
+  background-size: 80px 49px;
+}
+.text-block .cta5 div {
+  height: 48px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+  width: 400px !important;
+}
+.text-block .cta5 p {
+  display: block;
+  width: auto !important;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #fff;
+  max-width: 500px;
+}
+.text-block .cta5 p:first-of-type {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 12px;
+}
+.text-block .cta5 a {
+  width: auto !important;
+  position: absolute;
+  padding: 12px 20px;
+  background: #ffd645;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #291eaf;
+  text-decoration: none;
+}
+.text-block .cta5 input {
+  width: 100% !important;
+  padding: 12px 14px;
+  padding-right: 133px;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #2d2e2e;
+}
+.text-block .cta5 input::placeholder {
+  color: #667085;
+}
+.text-block .cta5 input:focus {
+  outline: none;
+}</style>
+</head>
+<body><div class="text-block"><h1>Desvendando os Padr&otilde;es de Design em Ruby: O guia divertido para iniciantes</h1>
+<p>Descubra os segredos por tr&aacute;s dos padr&otilde;es de design em Ruby neste guia divertido e envolvente para iniciantes curiosos.</p>
+<div class="feature-img-div"><img class="feature-img" src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=650&amp;w=940" alt="Data Codes through Eyeglasses">
+<p>Image courtesy of Kevin Ku via <a href="https://www.pexels.com/photo/data-codes-through-eyeglasses-577585/" target="_blank" rel="noopener noreferrer">Pexels</a></p>
+</div>
+<div class="table-of-contents">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#por-que-entender-padroes-de-design-em-ruby-e-importante">Por que entender padr&otilde;es de design em Ruby &eacute; importante?</a></li>
+<li><a href="#padroes-de-design-comuns-em-ruby">Padr&otilde;es de Design Comuns em Ruby</a></li>
+<li><a href="#exemplos-e-dicas-praticas">Exemplos e Dicas Pr&aacute;ticas</a></li>
+<li><a href="#elementos-interativos-para-engajar-os-leitores">Elementos Interativos para Engajar os Leitores</a></li>
+<li><a href="#conclusao-e-recursos-adicionais">Conclus&atilde;o e Recursos Adicionais</a></li>
+</ul>
+</div>
+<p>Se voc&ecirc; &eacute; um desenvolvedor iniciante em Ruby ou mesmo um programador experiente que deseja aprimorar suas habilidades, compreender os padr&otilde;es de design &eacute; fundamental para escrever um c&oacute;digo mais eficiente e organizado. Neste e-book, vamos explorar os padr&otilde;es de design mais comumente utilizados em programa&ccedil;&atilde;o Ruby, de uma maneira descontra&iacute;da e divertida. Prepare-se para mergulhar nesse mundo fascinante e descobrir como aplicar esses padr&otilde;es em seus pr&oacute;prios projetos!</p>
+<h2 id="por-que-entender-padroes-de-design-em-ruby-e-importante">Por que entender padr&otilde;es de design em Ruby &eacute; importante?</h2>
+<p>Antes de mergulharmos nos padr&otilde;es de design espec&iacute;ficos, &eacute; crucial entender por que eles s&atilde;o t&atilde;o importantes na programa&ccedil;&atilde;o Ruby. Os padr&otilde;es de design s&atilde;o solu&ccedil;&otilde;es comprovadas para problemas recorrentes no desenvolvimento de software. Ao conhecer e compreender esses padr&otilde;es, os desenvolvedores podem escrever c&oacute;digo mais limpo, leg&iacute;vel e sustent&aacute;vel.</p>
+<div class="cta1">
+<div>
+<p>Aprenda a dominar o design em Ruby!</p>
+<p>Inscreva-se na nossa newsletter e torne-se um expert em programa&ccedil;&atilde;o.</p>
+</div>
+<a href="http://texta.ai/" target="_blank" rel="noopener noreferrer">Start Now</a></div>
+<h2 id="padroes-de-design-comuns-em-ruby">Padr&otilde;es de Design Comuns em Ruby</h2>
+<p>O Singleton pattern &eacute; um dos padr&otilde;es mais simples e &uacute;teis em Ruby. Ele garante que uma classe tenha apenas uma inst&acirc;ncia e fornece um ponto de acesso global para essa inst&acirc;ncia. Ao entender e aplicar o Singleton pattern, os desenvolvedores podem controlar melhor o acesso a recursos compartilhados e evitar duplica&ccedil;&atilde;o de inst&acirc;ncias desnecess&aacute;rias.</p>
+<div class="youtube-div"><iframe class="youtube-embed" src="https://www.youtube.com/embed/Hsu_Ph57g40" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe></div>
+<h3>Factory Pattern</h3>
+<p>O Factory pattern &eacute; amplamente utilizado em Ruby para encapsular a l&oacute;gica de cria&ccedil;&atilde;o de objetos. Em vez de instanciar objetos diretamente usando o construtor, o Factory pattern fornece m&eacute;todos especializados para criar inst&acirc;ncias com base em determinados crit&eacute;rios. Isso torna o c&oacute;digo mais flex&iacute;vel, facilitando a manuten&ccedil;&atilde;o e extens&atilde;o no futuro.</p>
+<h3>Observer Pattern</h3>
+<p>O Observer pattern &eacute; essencial para implementar a comunica&ccedil;&atilde;o entre objetos de forma eficiente. Ele permite que um objeto observe e receba notifica&ccedil;&otilde;es sobre as mudan&ccedil;as de estado de outro objeto. Ao compreender e aplicar o Observer pattern, os desenvolvedores podem criar sistemas reativos e din&acirc;micos em Ruby.</p>
+<h3>MVC Pattern</h3>
+<p>O padr&atilde;o MVC (Model-View-Controller) &eacute; amplamente utilizado em aplica&ccedil;&otilde;es web Ruby on Rails. Ele separa a l&oacute;gica de neg&oacute;cios (Model), a apresenta&ccedil;&atilde;o (View) e o controle de intera&ccedil;&otilde;es do usu&aacute;rio (Controller) em camadas distintas. Com o MVC pattern, os desenvolvedores podem manter uma arquitetura limpa e modular, facilitando a manuten&ccedil;&atilde;o e escalabilidade do c&oacute;digo.</p>
+<div id="tweet-quote">
+<blockquote>Discovering Design Patterns in Ruby: The fun guide for beginners will elevate your coding skills and spark creativity in your projects! [insert link] #coding #designpatterns</blockquote>
+<a id="tweet-button" href="https://twitter.com/intent/tweet?text=Discovering%20Design%20Patterns%20in%20Ruby%3A%20The%20fun%20guide%20for%20beginners%20will%20elevate%20your%20coding%20skills%20and%20spark%20creativity%20in%20your%20projects!%20%5Binsert%20link%5D%20%23coding%20%23designpatterns" target="_blank" rel="noopener"> Tweet Quote </a></div>
+<h2 id="exemplos-e-dicas-praticas">Exemplos e Dicas Pr&aacute;ticas</h2>
+<p>Para ajudar a solidificar seu entendimento dos padr&otilde;es de design em Ruby, inclu&iacute;mos exemplos pr&aacute;ticos e dicas &uacute;teis ao longo do e-book. Explore diferentes cen&aacute;rios de uso para cada padr&atilde;o e aprenda a implement&aacute;-los em seus pr&oacute;prios projetos. N&atilde;o tenha medo de experimentar e praticar, pois a melhor maneira de dominar os padr&otilde;es de design &eacute; coloc&aacute;-los em a&ccedil;&atilde;o.</p>
+<h2 id="elementos-interativos-para-engajar-os-leitores">Elementos Interativos para Engajar os Leitores</h2>
+<p>Para tornar a aprendizagem mais divertida e envolvente, consideramos incluir elementos interativos, como quizzes ou desafios, ao longo do e-book. Teste seus conhecimentos sobre os padr&otilde;es de design em Ruby e desafie-se a aplic&aacute;-los em situa&ccedil;&otilde;es do mundo real. Aprender de forma interativa &eacute; uma maneira eficaz de reter informa&ccedil;&otilde;es e aprimorar suas habilidades de programa&ccedil;&atilde;o.</p>
+<div class="youtube-div"><iframe class="youtube-embed" src="https://www.youtube.com/embed/Jup2etE2fSQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe></div>
+<div class="cta4">
+<p>Aprenda a dominar o design em Ruby!</p>
+<p>Inscreva-se na nossa newsletter e torne-se um expert em programa&ccedil;&atilde;o.</p>
+<div><a href="http://texta.ai/" target="_blank" rel="noopener noreferrer">Start Now</a> <a href="http://texta.ai/" target="_blank" rel="noopener noreferrer">Learn More</a></div>
+</div>
+<h2 id="conclusao-e-recursos-adicionais">Conclus&atilde;o e Recursos Adicionais</h2>
+<p>&Agrave; medida que voc&ecirc; chega ao final deste e-book, esperamos que tenha adquirido uma compreens&atilde;o s&oacute;lida dos padr&otilde;es de design em Ruby e esteja pronto para aplic&aacute;-los em seus pr&oacute;prios projetos. Recapitule os pontos-chave abordados ao longo do guia e familiarize-se com recursos adicionais para aprofundar seu conhecimento sobre o assunto. Lembre-se, a jornada de aprendizagem em programa&ccedil;&atilde;o &eacute; cont&iacute;nua e cheia de descobertas emocionantes. Continue explorando e experimentando novos conceitos para se tornar um mestre em Ruby programming!</p></div></body></html>
