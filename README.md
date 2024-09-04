@@ -12,7 +12,7 @@ Este podcast de 5 minutos oferece um passeio rápido, mas profundo, pelo mundo d
 
 ## 🚀 Resultados
 O artigo gerado em portugues é um guia divertido que confida o usuario a usar design paterns adecuados para a linguagem Rugy.
-
+[veja o arquivo do artigo](https://github.com/wfbraga/lab-natty-or-not/blob/main/exemplos/Desvendando%20os%20Padr%C3%B5es%20de%20Design%20em%20Ruby_%20O%20guia%20divertido%20para%20iniciantes.html)
 
 
 ## 💭 Reflexão
